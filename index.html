@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>밀키팜 | 젖소 이야기</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      color: #253328;
+      background: #f7faf5;
+      line-height: 1.6;
+    }
+
+    /* -------------------------
+       HEADER
+    ------------------------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid #e4eadf;
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #315d37;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #344538;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #5c985d;
+    }
+
+    /* -------------------------
+       HERO
+    ------------------------- */
+    .hero {
+      min-height: 100vh;
+      padding: 120px 24px 60px;
+      background:
+        linear-gradient(
+          rgba(41, 75, 43, 0.18),
+          rgba(41, 75, 43, 0.35)
+        ),
+        linear-gradient(135deg, #e9f4df, #bddcae);
+
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-text .small {
+      display: inline-block;
+      color: #315d37;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 7vw, 85px);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      color: #244a2a;
+    }
+
+    .hero h1 span {
+      color: #ffffff;
+    }
+
+    .hero p {
+      max-width: 580px;
+      font-size: 19px;
+      margin-bottom: 30px;
+      color: #314535;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      padding: 15px 28px;
+      border-radius: 10px;
+      background: #315d37;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero-btn:hover {
+      background: #234528;
+      transform: translateY(-3px);
+    }
+
+    /* CSS로 만든 젖소 카드 */
+    .cow-visual {
+      position: relative;
+      height: 450px;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 25px 70px rgba(50, 85, 52, 0.15);
+      overflow: hidden;
+    }
+
+    .cow {
+      font-size: 180px;
+      filter: drop-shadow(0 20px 10px rgba(0,0,0,0.12));
+      animation: cowMove 3s ease-in-out infinite;
+    }
+
+    @keyframes cowMove {
+      0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+      50% {
+        transform: translateY(-12px) rotate(2deg);
+      }
+    }
+
+    .grass {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 80px;
+      background: #75a86c;
+    }
+
+    /* -------------------------
+       COMMON
+    ------------------------- */
+    section {
+      padding: 100px 24px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title span {
+      color: #669768;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 14px;
+    }
+
+    .section-title h2 {
+      margin-top: 8px;
+      font-size: clamp(30px, 4vw, 48px);
+      color: #294c2e;
+    }
+
+    .section-title p {
+      margin: 15px auto 0;
+      max-width: 650px;
+      color: #68746a;
+    }
+
+    /* -------------------------
+       INTRO CARDS
+    ------------------------- */
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .info-card {
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid #e5ece2;
+      transition: 0.3s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(50, 70, 50, 0.1);
+    }
+
+    .info-icon {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .info-card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+      color: #315d37;
+    }
+
+    .info-card p {
+      color: #6b766c;
+    }
+
+    /* -------------------------
+       BREEDS
+    ------------------------- */
+
+    #breeds {
+      background: #edf4e9;
+    }
+
+    .breed-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
+
+    .breed-button {
+      border: 1px solid #aac4a7;
+      background: white;
+      color: #315d37;
+      padding: 11px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .breed-button:hover,
+    .breed-button.active {
+      background: #315d37;
+      color: white;
+    }
+
+    .breed-detail {
+      max-width: 850px;
+      min-height: 250px;
+      margin: auto;
+      padding: 45px;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(45, 75, 45, 0.08);
+    }
+
+    .breed-detail h3 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #315d37;
+    }
+
+    .breed-detail .en-name {
+      color: #8aa487;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .breed-detail p {
+      color: #5c695e;
+      font-size: 17px;
+    }
+
+    /* -------------------------
+       NUMBERS
+    ------------------------- */
+
+    .numbers {
+      background: #315d37;
+      color: white;
+    }
+
+    .numbers .section-title h2,
+    .numbers .section-title span,
+    .numbers .section-title p {
+      color: white;
+    }
+
+    .number-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      gap: 20px;
+    }
+
+    .number-item {
+      padding: 30px 10px;
+      border-right: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .number-item:last-child {
+      border: none;
+    }
+
+    .number-item strong {
+      display: block;
+      font-size: 43px;
+      margin-bottom: 5px;
+    }
+
+    .number-item span {
+      color: #dbe9d8;
+    }
+
+    /* -------------------------
+       QUIZ
+    ------------------------- */
+
+    #quiz {
+      background: #fffdf6;
+    }
+
+    .quiz-box {
+      max-width: 750px;
+      margin: auto;
+      background: white;
+      padding: 45px;
+      border-radius: 25px;
+      border: 1px solid #ebe8dc;
+    }
+
+    .quiz-progress {
+      font-size: 14px;
+      color: #829080;
+      margin-bottom: 12px;
+    }
+
+    #question {
+      font-size: 24px;
+      margin-bottom: 25px;
+      color: #294c2e;
+    }
+
+    .answers {
+      display: grid;
+      gap: 12px;
+    }
+
+    .answer-button {
+      text-align: left;
+      padding: 15px 18px;
+      background: #f5f8f3;
+      border: 1px solid #dce6d8;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .answer-button:hover {
+      background: #e5f0e0;
+    }
+
+    #quizResult {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    /* -------------------------
+       FOOTER
+    ------------------------- */
+
+    footer {
+      padding: 50px 24px;
+      background: #1d3020;
+      color: #bac9ba;
+      text-align: center;
+    }
+
+    footer h2 {
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    /* -------------------------
+       RESPONSIVE
+    ------------------------- */
+
+    @media(max-width: 850px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cow-visual {
+        height: 320px;
+      }
+
+      .cow {
+        font-size: 130px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .number-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .number-item {
+        border: none;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media(max-width: 500px) {
+      section {
+        padding: 70px 18px;
+      }
+
+      .number-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quiz-box,
+      .breed-detail {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+<header>
+  <nav>
+    <div class="logo">🐄 MILKY FARM</div>
+
+    <ul class="nav-links">
+      <li><a href="#about">젖소 이야기</a></li>
+      <li><a href="#breeds">품종</a></li>
+      <li><a href="#numbers">젖소 숫자</a></li>
+      <li><a href="#quiz">퀴즈</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+<section class="hero">
+
+  <div class="hero-inner">
+
+    <div class="hero-text">
+
+      <span class="small">DAIRY COW STORY</span>
+
+      <h1>
+        우리가 몰랐던<br>
+        <span>젖소 이야기</span>
+      </h1>
+
+      <p>
+        매일 만나는 우유는 어디에서 시작될까요?
+        젖소의 특징과 주요 품종, 생활 방식에 대해
+        쉽고 재미있게 알아보세요.
+      </p>
+
+      <a class="hero-btn" href="#about">
+        젖소 알아보기 →
+      </a>
+
+    </div>
+
+    <div class="cow-visual">
+      <div class="cow">🐄</div>
+      <div class="grass"></div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+<section id="about">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>ABOUT DAIRY COWS</span>
+      <h2>젖소란 무엇일까요?</h2>
+      <p>
+        젖소는 우유 생산을 목적으로 사육되는 소를 말합니다.
+        품종마다 몸의 크기와 우유의 생산량, 유지방 특성 등이 다릅니다.
+      </p>
+    </div>
+
+    <div class="info-grid">
+
+      <div class="info-card">
+        <div class="info-icon">🥛</div>
+        <h3>우유 생산</h3>
+        <p>
+          젖소의 우유는 음용유뿐 아니라 치즈, 버터,
+          요구르트 등 다양한 유제품을 만드는 원료가 됩니다.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">🌿</div>
+        <h3>반추동물</h3>
+        <p>
+          소는 반추동물입니다. 섭취한 먹이를 되새김질하는
+          독특한 소화 과정을 가지고 있습니다.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">🏡</div>
+        <h3>사육 환경</h3>
+        <p>
+          건강한 젖소를 위해서는 적절한 영양 공급과
+          위생 관리, 쾌적한 축사 환경이 중요합니다.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     BREEDS
+========================= -->
+<section id="breeds">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>DAIRY BREEDS</span>
+      <h2>대표적인 젖소 품종</h2>
+      <p>
+        버튼을 클릭하면 각 젖소 품종의 특징을 확인할 수 있습니다.
+      </p>
+    </div>
+
+    <div class="breed-buttons">
+
+      <button class="breed-button active"
+        onclick="showBreed('holstein', this)">
+        홀스타인
+      </button>
+
+      <button class="breed-button"
+        onclick="showBreed('jersey', this)">
+        저지
+      </button>
+
+      <button class="breed-button"
+        onclick="showBreed('brown', this)">
+        브라운 스위스
+      </button>
+
+      <button class="breed-button"
+        onclick="showBreed('ayrshire', this)">
+        에어셔
+      </button>
+
+    </div>
+
+
+    <div class="breed-detail">
+
+      <h3 id="breedName">홀스타인</h3>
+
+      <div
+        class="en-name"
+        id="breedEnglish">
+        HOLSTEIN FRIESIAN
+      </div>
+
+      <p id="breedDescription">
+        검은색과 흰색 얼룩무늬로 유명한 대표적인 젖소 품종입니다.
+        전 세계 낙농 산업에서 널리 사육되고 있으며
+        높은 산유량으로 잘 알려져 있습니다.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     NUMBERS
+========================= -->
+<section class="numbers" id="numbers">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>KNOW THE COW</span>
+      <h2>숫자로 보는 젖소</h2>
+      <p>
+        젖소와 소의 생물학적 특징을 간단한 숫자로 확인해 보세요.
+      </p>
+    </div>
+
+    <div class="number-grid">
+
+      <div class="number-item">
+        <strong class="counter" data-target="4">0</strong>
+        <span>개의 위 구획</span>
+      </div>
+
+      <div class="number-item">
+        <strong class="counter" data-target="32">0</strong>
+        <span>개의 성체 치아</span>
+      </div>
+
+      <div class="number-item">
+        <strong class="counter" data-target="280">0</strong>
+        <span>일 전후의 임신기간</span>
+      </div>
+
+      <div class="number-item">
+        <strong class="counter" data-target="360">0</strong>
+        <span>도에 가까운 넓은 시야</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     QUIZ
+========================= -->
+<section id="quiz">
+
+  <div class="container">
+
+    <div class="section-title">
+      <span>COW QUIZ</span>
+      <h2>젖소 상식 퀴즈</h2>
+      <p>
+        지금까지 알아본 내용으로 간단한 문제를 풀어보세요.
+      </p>
+    </div>
+
+
+    <div class="quiz-box">
+
+      <div
+        class="quiz-progress"
+        id="quizProgress">
+        문제 1 / 3
+      </div>
+
+      <h3 id="question">
+        대표적인 검정·흰색 얼룩무늬 젖소는?
+      </h3>
+
+      <div
+        class="answers"
+        id="answers">
+      </div>
+
+      <div id="quizResult"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+
+  <h2>🐄 MILKY FARM</h2>
+
+  <p>
+    젖소와 낙농에 대해 쉽고 재미있게 알아보는 웹페이지
+  </p>
+
+</footer>
+
+
+<script>
+
+  /* =========================
+     젖소 품종 데이터
+  ========================= */
+
+  const breeds = {
+
+    holstein: {
+      name: "홀스타인",
+      english: "HOLSTEIN FRIESIAN",
+      description:
+        "검은색과 흰색 얼룩무늬로 유명한 대표적인 젖소 품종입니다. 전 세계 낙농 산업에서 널리 사육되고 있으며 높은 산유량으로 잘 알려져 있습니다."
+    },
+
+    jersey: {
+      name: "저지",
+      english: "JERSEY",
+      description:
+        "비교적 작은 체격을 가진 젖소입니다. 우유 생산량 자체는 홀스타인보다 적은 편이지만 유지방과 단백질 함량이 높은 우유를 생산하는 것으로 유명합니다."
+    },
+
+    brown: {
+      name: "브라운 스위스",
+      english: "BROWN SWISS",
+      description:
+        "스위스에서 발전한 오래된 젖소 품종 중 하나입니다. 갈색 또는 회갈색 털이 특징이며 튼튼한 체질과 비교적 높은 우유 생산 능력을 가지고 있습니다."
+    },
+
+    ayrshire: {
+      name: "에어셔",
+      english: "AYRSHIRE",
+      description:
+        "스코틀랜드 에어셔 지방에서 발전한 젖소 품종입니다. 붉은색과 흰색 무늬가 특징이며 다양한 환경에 비교적 잘 적응하는 품종으로 알려져 있습니다."
+    }
+
+  };
+
+
+  function showBreed(type, button) {
+
+    const breed = breeds[type];
+
+    document.getElementById("breedName").textContent =
+      breed.name;
+
+    document.getElementById("breedEnglish").textContent =
+      breed.english;
+
+    document.getElementById("breedDescription").textContent =
+      breed.description;
+
+
+    document
+      .querySelectorAll(".breed-button")
+      .forEach(btn =>
+        btn.classList.remove("active")
+      );
+
+    button.classList.add("active");
+  }
+
+
+  /* =========================
+     숫자 애니메이션
+  ========================= */
+
+  const counters =
+    document.querySelectorAll(".counter");
+
+  let counterStarted = false;
+
+
+  function startCounters() {
+
+    if (counterStarted) return;
+
+    const section =
+      document.querySelector(".numbers");
+
+    const position =
+      section.getBoundingClientRect().top;
+
+    if (position <
+        window.innerHeight - 100) {
+
+      counterStarted = true;
+
+      counters.forEach(counter => {
+
+        const target =
+          Number(counter.dataset.target);
+
+        let current = 0;
+
+        const increment =
+          Math.max(1, Math.ceil(target / 60));
+
+        const timer =
+          setInterval(() => {
+
+            current += increment;
+
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+
+            counter.textContent =
+              current.toLocaleString();
+
+          }, 25);
+
+      });
+
+    }
+
+  }
+
+  window.addEventListener(
+    "scroll",
+    startCounters
+  );
+
+  startCounters();
+
+
+  /* =========================
+     젖소 퀴즈
+  ========================= */
+
+  const quizData = [
+
+    {
+      question:
+        "대표적인 검정·흰색 얼룩무늬 젖소는?",
+      answers: [
+        "홀스타인",
+        "한우",
+        "에어셔",
+        "앵거스"
+      ],
+      correct: 0
+    },
+
+    {
+      question:
+        "소는 어떤 동물에 해당할까요?",
+      answers: [
+        "육식동물",
+        "반추동물",
+        "파충류",
+        "조류"
+      ],
+      correct: 1
+    },
+
+    {
+      question:
+        "유지방 함량이 높은 우유로 잘 알려진 젖소 품종은?",
+      answers: [
+        "저지",
+        "앵거스",
+        "헤리퍼드",
+        "샤롤레"
+      ],
+      correct: 0
+    }
+
+  ];
+
+
+  let currentQuestion = 0;
+  let score = 0;
+
+
+  function loadQuestion() {
+
+    const quiz =
+      quizData[currentQuestion];
+
+    document.getElementById(
+      "quizProgress"
+    ).textContent =
+      `문제 ${currentQuestion + 1} / ${quizData.length}`;
+
+
+    document.getElementById(
+      "question"
+    ).textContent =
+      quiz.question;
+
+
+    const answersContainer =
+      document.getElementById(
+        "answers"
+      );
+
+    answersContainer.innerHTML = "";
+
+
+    quiz.answers.forEach(
+      (answer, index) => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+        button.className =
+          "answer-button";
+
+        button.textContent =
+          answer;
+
+        button.onclick =
+          () => checkAnswer(index);
+
+        answersContainer.appendChild(
+          button
+        );
+
+      });
+
+  }
+
+
+  function checkAnswer(index) {
+
+    const quiz =
+      quizData[currentQuestion];
+
+    if (index === quiz.correct) {
+      score++;
+    }
+
+    currentQuestion++;
+
+    if (
+      currentQuestion <
+      quizData.length
+    ) {
+
+      loadQuestion();
+
+    } else {
+
+      showQuizResult();
+
+    }
+
+  }
+
+
+  function showQuizResult() {
+
+    document.getElementById(
+      "quizProgress"
+    ).textContent =
+      "퀴즈 완료";
+
+
+    document.getElementById(
+      "question"
+    ).textContent =
+      "결과를 확인해 보세요!";
+
+
+    document.getElementById(
+      "answers"
+    ).innerHTML = "";
+
+
+    document.getElementById(
+      "quizResult"
+    ).innerHTML = `
+      총 ${quizData.length}문제 중
+      <strong>${score}문제</strong>를 맞혔습니다.
+      <br><br>
+
+      <button
+        class="breed-button"
+        onclick="restartQuiz()">
+        다시 풀기
+      </button>
+    `;
+
+  }
+
+
+  function restartQuiz() {
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById(
+      "quizResult"
+    ).innerHTML = "";
+
+    loadQuestion();
+
+  }
+
+
+  loadQuestion();
+
+</script>
+
+</body>
+</html>
